@@ -1,0 +1,5 @@
+breakfast:
+  every: 10s
+  class: CitiesGrader
+  args:
+  description: Breakfast
