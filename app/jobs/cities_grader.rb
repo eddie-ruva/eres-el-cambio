@@ -3,4 +3,5 @@ module CitiesGrader
   def self.perform()
     puts "Doing my job"
   end
+
 end
