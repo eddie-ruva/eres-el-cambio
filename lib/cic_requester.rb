@@ -8,7 +8,7 @@ class CicRequester
 
   def self.fetch_reports_by_group(group_name, options = {})
     if group_name
-      group_id = GROUPS[group_name.to_sym]
+      group_id = GROUPS[group_name]
       options.merge!({:for_group => group_id})
       classify_per_county get('/0/nl/reports.json', :query => options)
     else
