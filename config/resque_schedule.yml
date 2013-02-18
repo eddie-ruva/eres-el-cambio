@@ -1,5 +1,4 @@
-breakfast:
-  every: 10s
+requesting_cic:
+  every: 1m
   class: CitiesGrader
-  args:
-  description: Breakfast
+  description: Requesting CIC
