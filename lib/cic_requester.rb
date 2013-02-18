@@ -27,7 +27,7 @@ class CicRequester
         county.downcase!
         mini_report = { :ticket => report['ticket'],
                         :state => report['state'],
-                        :group => report['group'].downcase}
+                        :group => report['group'].downcase }
         if reports_by_county[county.to_sym]
           reports_by_county[county.to_sym] << mini_report
         else
