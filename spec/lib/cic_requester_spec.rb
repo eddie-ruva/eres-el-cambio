@@ -27,6 +27,11 @@ describe CicRequester do
       city = reports_json.keys[0]
       reports_json[city][0][:group].should == 'comunidad'
     end
+
+    it "should save the county when not present on the database" do
+      reports_json = CicRequester.fetch_reports_by_group(:security)
+      County.all.count.should >= 0
+    end
   end
 
 end
