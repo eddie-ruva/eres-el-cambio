@@ -31,6 +31,7 @@ class CicRequester
         if reports_by_county[county.to_sym]
           reports_by_county[county.to_sym] << mini_report
         else
+          County.find_or_create_by_name(county)
           reports_by_county[county.to_sym] = [mini_report]
         end
       end

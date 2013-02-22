@@ -15,7 +15,7 @@ class Grader
     reports = CicRequester.fetch_reports_by_group(group_name)
     reports.each do | county, reports_for_county |
       percentage = send "grade_#{group_name.to_s}", reports_for_county
-      REDIS.hset county.to_s, group_name.to_s, percentage
+      County.find_by_name(county.to_s).update_attributes(group_name => percentage)
     end
   end
 
