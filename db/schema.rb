@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222024620) do
+ActiveRecord::Schema.define(:version => 20130223200205) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(:version => 20130222024620) do
     t.integer  "happiness",         :default => 0
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "initiatives", :force => true do |t|
+    t.string   "author"
+    t.text     "description"
+    t.integer  "county_id"
+    t.string   "group"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
