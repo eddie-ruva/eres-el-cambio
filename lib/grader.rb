@@ -8,7 +8,6 @@ class Grader
     grade_for_group :community
   end
 
-
   private
 
   def grade_for_group(group_name)
@@ -40,6 +39,5 @@ class Grader
   def grade_community(reports)
     reports.length
   end
-
 
 end
