@@ -8,6 +8,13 @@ class Grader
     grade_for_group :community
   end
 
+  # Returns a descending sorted array of the counties sorted by all their attributes
+  def rank_counties
+    ranked_counties = County.all( :order =>
+      'security desc, public_services desc, citizen_proposals desc, community desc, happiness desc'
+    )
+    ranked_counties
+  end
 
   private
 
