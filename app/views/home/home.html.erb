@@ -6,7 +6,7 @@
   </div>
   <div class="form">
     <h2>¿Cónoces dónde vives?</h2>
-    <input id="city-to-search" type="text" placeholder="Ej. Monterrey">
+    <%= text_field_tag 'county_searched', nil, placeholder: "Ej. Monterrey"%>
     <input id="search-city" type="submit" value="Buscar">
     <p> ¿Cónoces el lugar dónde vives? <span>Ayuda a mejorar tu ciudad.</span></p>
   </div>
@@ -199,7 +199,7 @@
         </form>
       </div>
       <div class="social">
-        <img src="img/shout.png">
+        <%= image_tag "shout.png" %>
         <p>Que no se quede en sólo ideas y quejas.Comparte y pasa la voz.</p>
         <a href="https://twitter.com/share" data-lang="es" data-size="large" data-hashtags="ereselcambio" class="twitter-share-button">Twittear</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>

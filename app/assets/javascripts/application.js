@@ -12,4 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery-ui
+//
+//
+//= require jquery.knob.js
+//= require waypoints.js
+//= require waypoints-sticky.js
+//= require jquery.leanModal.min.js
+//
+//= require functions
+//= require script
