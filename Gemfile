@@ -18,6 +18,7 @@ end
 
 gem 'jquery-rails'
 gem 'httparty'
+gem 'soulmate'
 
 
 group :test, :development do
