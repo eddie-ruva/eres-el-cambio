@@ -7,4 +7,10 @@ class County < ActiveRecord::Base
   validates     :citizen_proposals, :community,
                 :happiness, :public_services, :security,
                 numericality: true
+
+
+  def self.get_default_county
+    County.first
+  end
+
 end
