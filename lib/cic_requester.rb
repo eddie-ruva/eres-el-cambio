@@ -24,7 +24,6 @@ class CicRequester
     reports['reports'].each do |report|
       county = report['address_detail']['county']['long_name']
       if county
-        county.downcase!
         mini_report = { :ticket => report['ticket'],
                         :state => report['state'],
                         :group => report['group'].downcase }
