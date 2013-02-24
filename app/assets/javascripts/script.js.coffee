@@ -1,13 +1,13 @@
 $(document).ready ->
-  
+
   # Graphic for percentage
   $(".knob").knob
     min: 0
     max: 100
     readOnly: true
 
-  
-  # Submit search for city 
+
+  # Submit search for city
   $("#search-city").click ->
     self = this
     human_name = $("#city-to-search").val()
@@ -16,7 +16,7 @@ $(document).ready ->
       if data.error
         $(".content").hide()
         $(".empty-results").show()
-        
+
         # scroll to first category 
         $("html, body").animate scrollTop: $(".empty-results").offset().top
       else
@@ -29,22 +29,24 @@ $(document).ready ->
         $("#servicios_publicos").val(data.servicios_publicos or 0).trigger "change"
         $("#bienestar").val(data.welfare or 0).trigger "change"
         console.log data
-        
+
         # scroll to first category 
         $("html, body").animate scrollTop: $(".seguridad").offset().top
         EresElCambioApp.writeCookie "current-city", cities[human_name]
 
     true
 
-  
+
   # jquery UI Autocomplete 
   $("#county_searched").autocomplete
     minLength: 2
     source: "/counties/search_on_name"
 
+
+  # City name sticky
   $(".nav-place").waypoint "sticky"
-  
-  # Proposal modal 
+
+  # Proposal modal
   $(".help").leanModal
     overlay: 0.4
     closeButton: ".modal_close"
