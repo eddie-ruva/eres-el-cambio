@@ -1,6 +1,9 @@
 EresElCambio::Application.routes.draw do
   root to: 'home#home'
-  mount Resque::Server, :at => "/resque"
 
-  match 'counties/:county', to: 'counties#search_for_county'
+  resources :counties do
+    get 'search_on_name', :on => :collection
+  end
+
+  mount Resque::Server, :at => "/resque"
 end

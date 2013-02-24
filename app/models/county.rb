@@ -10,6 +10,13 @@ class County < ActiveRecord::Base
 
   after_save :load_into_soulmate
 
+  def self.search_for_term_name(term)
+    matches = Soulmate::Matcher.new('county').matches_for_term(term)
+    matches.map do |match|
+      match["term"]
+    end
+  end
+
   def self.get_default_county
     County.first
   end
