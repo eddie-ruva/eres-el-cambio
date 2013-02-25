@@ -6,8 +6,12 @@
   </div>
   <div class="form">
     <h2>¿Cónoces dónde vives?</h2>
-    <%= text_field_tag 'county_searched', nil, placeholder: "Ej. Monterrey"%>
-    <input id="search-city" type="submit" value="Buscar">
+    <%= form_tag counties_show_by_term_path,
+                 method: :get, remote: true,
+                 id: "county-search-form" do %>
+      <%= text_field_tag 'county_searched', nil, placeholder: "Ej. Monterrey"%>
+      <%= submit_tag 'Buscar', id: 'search-city'%>
+    <% end %>
     <p> ¿Cónoces el lugar dónde vives? <span>Ayuda a mejorar tu ciudad.</span></p>
   </div>
   <div class="vote">

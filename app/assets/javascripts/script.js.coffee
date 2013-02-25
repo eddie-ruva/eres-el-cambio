@@ -7,36 +7,24 @@ $(document).ready ->
     readOnly: true
 
 
-  # Submit search for city
-  $("#search-city").click ->
-    self = this
-    human_name = $("#city-to-search").val()
-    endpoint = "/county/" + cities[human_name] + ".json"
-    $.get endpoint, (data) ->
-      if data.error
-        $(".content").hide()
-        $(".empty-results").show()
+  $('#county-search-form').bind("ajax:success", (event, data, status, xhr) ->
+    $(".content").show()
+    $(".empty-results").hide()
+    $("#city-name").html data.name
+    $("#comunidad").val(data.community).trigger "change"
+    $("#propuestas_ciudadanas").val(data.citizen_proposals).trigger "change"
+    $("#seguridad").val(data.security).trigger "change"
+    $("#servicios_publicos").val(data.public_services).trigger "change"
+    $("#happiness").val(data.welfare).trigger "change"
 
-        # scroll to first category 
-        $("html, body").animate scrollTop: $(".empty-results").offset().top
-      else
-        $(".content").show()
-        $(".empty-results").hide()
-        $("#city-name").html human_name
-        $("#comunidad").val(data.comunidad or 0).trigger "change"
-        $("#propuestas_ciudadanas").val(data.propuestas_ciudadanas or 0).trigger "change"
-        $("#seguridad").val(data.seguridad or 0).trigger "change"
-        $("#servicios_publicos").val(data.servicios_publicos or 0).trigger "change"
-        $("#bienestar").val(data.welfare or 0).trigger "change"
-        console.log data
+    $("html, body").animate scrollTop: $(".seguridad").offset().top
 
-        # scroll to first category 
-        $("html, body").animate scrollTop: $(".seguridad").offset().top
-        EresElCambioApp.writeCookie "current-city", cities[human_name]
+  ).bind("ajax:error", (event, xhr, status, error) ->
+    $(".content").hide()
+    $(".empty-results").show()
 
-    true
-
-
+    $("html, body").animate scrollTop: $(".empty-results").offset().top
+  )
   # jquery UI Autocomplete 
   $("#county_searched").autocomplete
     minLength: 2

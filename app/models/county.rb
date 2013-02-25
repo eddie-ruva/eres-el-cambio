@@ -26,4 +26,8 @@ class County < ActiveRecord::Base
     loader.add("term" => name, "id" => id)
   end
 
+  def self.find_by_closest_name(name)
+    County.where("name LIKE ?", "%#{name}%").first
+  end
+
 end
